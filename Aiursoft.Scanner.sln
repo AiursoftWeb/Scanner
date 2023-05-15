@@ -1,32 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31005.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aiursoft.Warp", "src\Aiursoft.Warp.csproj", "{EC4E4D11-4D6B-4882-A71C-28A43A08F1F8}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aiursoft.Warp.Tests", "tests\Aiursoft.Warp.Tests.csproj", "{FD0EFF1A-DC02-4FA6-9D35-9EE78146DECB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ADED4E7B-38C9-4DF2-8BF6-733F3740712E}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
-EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EC4E4D11-4D6B-4882-A71C-28A43A08F1F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC4E4D11-4D6B-4882-A71C-28A43A08F1F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC4E4D11-4D6B-4882-A71C-28A43A08F1F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC4E4D11-4D6B-4882-A71C-28A43A08F1F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD0EFF1A-DC02-4FA6-9D35-9EE78146DECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD0EFF1A-DC02-4FA6-9D35-9EE78146DECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD0EFF1A-DC02-4FA6-9D35-9EE78146DECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD0EFF1A-DC02-4FA6-9D35-9EE78146DECB}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
