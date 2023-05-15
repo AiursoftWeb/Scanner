@@ -1,5 +1,5 @@
 ﻿namespace Aiursoft.Scanner.Tests;
-public class Class1
-{
 
+public interface MySampleInterface
+{
 }
