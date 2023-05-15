@@ -1,7 +1,9 @@
 # Aiursoft Scanner
 
-[![NuGet version (Aiursoft.Scanner)](https://img.shields.io/nuget/v/Aiursoft.Scanner.svg?style=flat-square)](https://www.nuget.org/packages/Aiursoft.Scanner/)
-[![Build status](https://aiursoft.visualstudio.com/Star/_apis/build/status/Infrastructures%20Build)](https://aiursoft.visualstudio.com/Star/_build/latest?definitionId=5)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.cn/aiursoft/scanner/-/blob/master/LICENSE)
+[![Pipeline stat](https://gitlab.aiursoft.cn/aiursoft/scanner/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/aiursoft/scanner/-/pipelines)
+[![Test Coverage](https://gitlab.aiursoft.cn/aiursoft/scanner/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/aiursoft/scanner/-/pipelines)
+[![NuGet version (Aiursoft.Scanner)](https://img.shields.io/nuget/v/Aiursoft.Scanner.svg)](https://www.nuget.org/packages/Aiursoft.Scanner/)
 
 An Automatic dependencies management system for ASP.NET Core and powers Aiursoft.
 
@@ -13,7 +15,7 @@ The traditional way to add dependencies is:
 service.AddScoped<MyScopedDependency>();
 ```
 
-Which means that you have to manually inject all dependencies. When you have too much of them, it is possible to make a mistake.
+Which means that you have to manually inject all dependencies. When you have too many of them, it is possible to make a mistake.
 
 ## How to use Aiursoft.Scanner
 
@@ -33,12 +35,12 @@ public class MySingletonService : ISingletonDependency
 
 }
 
-public class MyScopedService : IScopedDepdency
+public class MyScopedService : IScopedDependency
 {
 
 }
 
-public class MyTransientService : ITransientDepdency
+public class MyTransientService : ITransientDependency
 {
 
 }
@@ -67,7 +69,7 @@ public class MyController : Controller
 
 ### Advanced usage
 
-When you want to register a dependency which implements an abstract, your privouse way is like:
+When you want to register a dependency that implements an abstract, your previous way is:
 
 ```csharp
 public class MyClass : IAbstract
