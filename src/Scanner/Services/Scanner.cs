@@ -16,9 +16,11 @@ public class ClassScanner
             .Filter(removeSystem, t => !t.Name?.StartsWith("System") ?? false)
             .Filter(removeMicrosoft, t => !t.Name?.StartsWith("Microsoft") ?? false);
         foreach (var referenced in references)
-        foreach (var scanned in ScanAssemblies(Assembly.Load(referenced), removeSystem, removeMicrosoft))
         {
-            yield return scanned;
+            foreach (var scanned in ScanAssemblies(Assembly.Load(referenced), removeSystem, removeMicrosoft))
+            {
+                yield return scanned;
+            }
         }
     }
 
