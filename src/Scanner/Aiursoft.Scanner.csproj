@@ -1,16 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>6.0.9</Version>
+		<Version>6.0.10</Version>
 		<TargetFramework>net6.0</TargetFramework>
 		<Company>Aiursoft</Company>
 		<Product>AiursoftWeb</Product>
 		<Authors>Anduin</Authors>
+		<RepositoryType>git</RepositoryType>
+		<!--Nuget-->
+		<Company>Aiursoft</Company>
+		<Product>Scanner</Product>
+		<Authors>anduin</Authors>
 		<Description>Automatic dependencies management system which powers Aiursoft</Description>
 		<PackageTags>dependency-injection reflection</PackageTags>
-		<PackageProjectUrl>https://gitlab.aiursoft.cn/Aiursoft/Scanner</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://gitlab.aiursoft.cn/Aiursoft/Scanner.git</RepositoryUrl>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageId>Aiursoft.Scanner</PackageId>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://gitlab.aiursoft.cn/Aiursoft/Scanner</PackageProjectUrl>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
