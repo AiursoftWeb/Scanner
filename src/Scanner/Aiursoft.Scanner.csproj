@@ -8,7 +8,6 @@
 		<Authors>Anduin</Authors>
 		<RepositoryType>git</RepositoryType>
 		<!--Nuget-->
-		<Company>Aiursoft</Company>
 		<Product>Scanner</Product>
 		<Authors>anduin</Authors>
 		<Description>Automatic dependencies management system which powers Aiursoft</Description>
