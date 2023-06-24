@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Aiursoft.Scanner.Tools;
+﻿namespace Aiursoft.Scanner.Tools;
 
 public static class ListExtends
 {

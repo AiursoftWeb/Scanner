@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using Aiursoft.Scanner.Tools;
 
 namespace Aiursoft.Scanner.Services;
@@ -27,7 +24,7 @@ public class ClassScanner
     public List<Type> AllAccessibleClass(bool includeSystem, bool includeMicrosoft)
     {
         var entry = Assembly.GetEntryAssembly();
-        return ScanAssemblies(entry, !includeSystem, !includeMicrosoft)
+        return ScanAssemblies(entry!, !includeSystem, !includeMicrosoft)
             .Distinct()
             .SelectMany(t => t.GetTypes())
             .Where(t => !t.IsAbstract)

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using Aiursoft.Scanner.Abstractions;
 using Aiursoft.Scanner.Services;
 using Microsoft.Extensions.DependencyInjection;
