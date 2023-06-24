@@ -28,7 +28,7 @@ dotnet add package Aiursoft.Scanner
 Add the interface to your class like this:
 
 ```csharp
-using Aiursoft.Scanner.Interfaces;
+using Aiursoft.Scanner.Abstractions;
 
 public class MySingletonService : ISingletonDependency
 {
