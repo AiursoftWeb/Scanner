@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aiursoft.Scanner", "src\Scanner\Aiursoft.Scanner.csproj", "{EFD7AC5B-06B9-484A-8003-988295F95939}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aiursoft.Scanner.Abstract", "src\Scanner.Abstract\Aiursoft.Scanner.Abstract.csproj", "{FC7DE990-CE4A-4494-95FB-A52862897772}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aiursoft.Scanner.Abstractions", "src\Scanner.Abstractions\Aiursoft.Scanner.Abstractions.csproj", "{FC7DE990-CE4A-4494-95FB-A52862897772}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FED8880C-E518-4019-93F9-24016B44C129}"
 EndProject

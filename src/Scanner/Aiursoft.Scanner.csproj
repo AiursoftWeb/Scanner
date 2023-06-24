@@ -1,28 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>6.0.10</Version>
+		<!--Build and code-->
+		<OutputType>Library</OutputType>
+		<Version>6.0.11</Version>
 		<TargetFramework>net6.0</TargetFramework>
-		<Company>Aiursoft</Company>
-		<Product>AiursoftWeb</Product>
-		<Authors>Anduin</Authors>
-		<RepositoryType>git</RepositoryType>
+		<!--Best practice-->
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 		<!--Nuget-->
+		<Company>Aiursoft</Company>
 		<Product>Scanner</Product>
 		<Authors>anduin</Authors>
 		<Description>Automatic dependencies management system which powers Aiursoft</Description>
-		<PackageTags>dependency-injection reflection</PackageTags>
+		<PackageTags>dependencies injection scanner</PackageTags>
 		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://gitlab.aiursoft.cn/Aiursoft/Scanner.git</RepositoryUrl>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<RepositoryUrl>https://gitlab.aiursoft.cn/aiursoft/scanner</RepositoryUrl>
 		<PackageId>Aiursoft.Scanner</PackageId>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://gitlab.aiursoft.cn/Aiursoft/Scanner</PackageProjectUrl>
+		<PackageProjectUrl>https://gitlab.aiursoft.cn/aiursoft/scanner</PackageProjectUrl>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\Scanner.Abstract\Aiursoft.Scanner.Abstract.csproj" />
+		<ProjectReference Include="..\Scanner.Abstractions\Aiursoft.Scanner.Abstractions.csproj" />
 	</ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿using Aiursoft.Scanner.Abstract;
+﻿using Aiursoft.Scanner.Abstractions;
 
 namespace Aiursoft.Scanner.Tests;
 
