@@ -1,24 +1,24 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
-		<!--Build and code-->
-		<OutputType>Library</OutputType>
-		<Version>6.0.11</Version>
-		<TargetFramework>net6.0</TargetFramework>
-		<!--Best practice-->
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<!--Nuget-->
-		<Company>Aiursoft</Company>
-		<Product>Scanner</Product>
-		<Authors>anduin</Authors>
-		<Description>Automatic dependencies management system which powers Aiursoft</Description>
-		<PackageTags>dependencies injection scanner</PackageTags>
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://gitlab.aiursoft.cn/aiursoft/scanner</RepositoryUrl>
-		<PackageId>Aiursoft.Scanner.Abstractions</PackageId>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://gitlab.aiursoft.cn/aiursoft/scanner</PackageProjectUrl>
-	</PropertyGroup>
-
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <Version>6.0.11</Version>
+        <TargetFramework>net6.0</TargetFramework>
+        <AssemblyName>Aiursoft.Scanner.Abstractions</AssemblyName>
+        <RootNamespace>Aiursoft.Scanner.Abstractions</RootNamespace>
+        <IsTestProject>false</IsTestProject>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IsPackable>true</IsPackable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Company>Aiursoft</Company>
+        <Product>Scanner</Product>
+        <Authors>anduin</Authors>
+        <Description>Automatic dependencies management system which powers Aiursoft</Description>
+        <PackageId>Aiursoft.Scanner.Abstractions</PackageId>
+        <PackageTags>dependencies injection scanner</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://gitlab.aiursoft.cn/aiursoft/scanner</PackageProjectUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://gitlab.aiursoft.cn/aiursoft/scanner</RepositoryUrl>
+    </PropertyGroup>
 </Project>
