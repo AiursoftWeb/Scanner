@@ -1,24 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <OutputType>Library</OutputType>
-        <Version>7.0.0</Version>
-        <TargetFramework>net7.0</TargetFramework>
-        <AssemblyName>Aiursoft.Scanner.Abstractions</AssemblyName>
-        <RootNamespace>Aiursoft.Scanner.Abstractions</RootNamespace>
-        <IsTestProject>false</IsTestProject>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <IsPackable>true</IsPackable>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <Company>Aiursoft</Company>
-        <Product>Scanner</Product>
-        <Authors>anduin</Authors>
-        <Description>Automatic dependencies management system which powers Aiursoft</Description>
-        <PackageId>Aiursoft.Scanner.Abstractions</PackageId>
-        <PackageTags>dependencies injection scanner</PackageTags>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://gitlab.aiursoft.cn/aiursoft/scanner</PackageProjectUrl>
-        <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://gitlab.aiursoft.cn/aiursoft/scanner</RepositoryUrl>
-    </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <Version>7.0.1</Version>
+    <TargetFramework>net7.0</TargetFramework>
+    <AssemblyName>Aiursoft.Scanner.Abstractions</AssemblyName>
+    <RootNamespace>Aiursoft.Scanner.Abstractions</RootNamespace>
+    <IsTestProject>false</IsTestProject>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IsPackable>true</IsPackable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Company>Aiursoft</Company>
+    <Product>Scanner</Product>
+    <Authors>anduin</Authors>
+    <Description>Automatic dependencies management system which powers Aiursoft</Description>
+    <PackageId>Aiursoft.Scanner.Abstractions</PackageId>
+    <PackageTags>dependencies injection scanner</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://gitlab.aiursoft.cn/aiursoft/scanner</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://gitlab.aiursoft.cn/aiursoft/scanner</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="." />
+  </ItemGroup>
 </Project>
