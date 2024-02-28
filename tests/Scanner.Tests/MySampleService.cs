@@ -2,6 +2,4 @@
 
 namespace Aiursoft.Scanner.Tests;
 
-public class MySampleService : IScopedDependency
-{
-}
+public class MySampleService : IScopedDependency;

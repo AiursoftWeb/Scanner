@@ -1,5 +1,3 @@
 ﻿namespace Aiursoft.Scanner.Abstractions;
 
-public interface IScopedDependency
-{
-}
+public interface IScopedDependency;
