@@ -44,9 +44,9 @@ public class IntegratedTests
     public void TestScanAbstracts()
     {
         var services = new ServiceCollection();
-        services.AddLibraryDependencies(typeof(MySampleInterface));
+        services.AddLibraryDependencies(typeof(IMySampleInterface));
         var sp = services.BuildServiceProvider();
-        var mss = sp.GetRequiredService<MySampleInterface>();
+        var mss = sp.GetRequiredService<IMySampleInterface>();
         Assert.IsNotNull(mss);
         Assert.AreEqual(mss.GetType(), typeof(MySampleImplementation));
     }

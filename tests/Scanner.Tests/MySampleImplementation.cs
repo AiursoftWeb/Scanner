@@ -2,4 +2,4 @@
 
 namespace Aiursoft.Scanner.Tests;
 
-public class MySampleImplementation : MySampleInterface, ISingletonDependency;
+public class MySampleImplementation : IMySampleInterface, ISingletonDependency;

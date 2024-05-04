@@ -1,3 +1,3 @@
 ﻿namespace Aiursoft.Scanner.Tests;
 
-public interface MySampleInterface;
+public interface IMySampleInterface;
