@@ -20,6 +20,6 @@
     <PackageReference Include="MSTest.TestFramework" Version="3.7.3" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Scanner\Aiursoft.Scanner.csproj" />
+    <ProjectReference Include="..\..\src\Aiursoft.Scanner\Aiursoft.Scanner.csproj" />
   </ItemGroup>
 </Project>

@@ -27,6 +27,6 @@
     <None Include="../../README.md" Pack="true" PackagePath="." />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Scanner.Abstractions\Aiursoft.Scanner.Abstractions.csproj" />
+    <ProjectReference Include="..\Aiursoft.Scanner.Abstractions\Aiursoft.Scanner.Abstractions.csproj" />
   </ItemGroup>
 </Project>
