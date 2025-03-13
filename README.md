@@ -18,7 +18,7 @@ service.AddScoped<MyScopedDependency>();
 
 Which means that you have to manually inject all dependencies. When you have too many of them, it is possible to make a mistake.
 
-## How to use Aiursoft.Scanner
+## How to install
 
 First, install `Aiursoft.Scanner` to your ASP.NET Core project from nuget.org:
 
