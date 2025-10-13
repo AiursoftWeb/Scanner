@@ -48,6 +48,6 @@ public class IntegratedTests
         var sp = services.BuildServiceProvider();
         var mss = sp.GetRequiredService<IMySampleInterface>();
         Assert.IsNotNull(mss);
-        Assert.AreEqual(mss.GetType(), typeof(MySampleImplementation));
+        Assert.AreEqual(typeof(MySampleImplementation), mss.GetType());
     }
 }
