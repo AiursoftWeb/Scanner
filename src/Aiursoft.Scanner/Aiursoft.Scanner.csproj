@@ -17,9 +17,9 @@
     <PackageId>Aiursoft.Scanner</PackageId>
     <PackageTags>dependencies injection scanner</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://gitlab.aiursoft.cn/aiursoft/scanner</PackageProjectUrl>
+    <PackageProjectUrl>https://gitlab.aiursoft.com/aiursoft/scanner</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://gitlab.aiursoft.cn/aiursoft/scanner</RepositoryUrl>
+    <RepositoryUrl>https://gitlab.aiursoft.com/aiursoft/scanner</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
