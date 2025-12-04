@@ -4,7 +4,7 @@
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/scanner/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/scanner/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/aiursoft/scanner/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/scanner/-/pipelines)
 [![NuGet version (Aiursoft.Scanner)](https://img.shields.io/nuget/v/Aiursoft.Scanner.svg)](https://www.nuget.org/packages/Aiursoft.Scanner/)
-[![ManHours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/Scanner.svg)](https://gitlab.aiursoft.com/aiursoft/Scanner/-/commits/master?ref_type=heads)
+[![Man hours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/Scanner.svg)](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/Scanner.html)
 
 An Automatic dependencies management system for ASP.NET Core and powers Aiursoft.
 
