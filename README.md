@@ -7,112 +7,83 @@
 [![NuGet version (Aiursoft.Scanner)](https://img.shields.io/nuget/v/Aiursoft.Scanner.svg)](https://www.nuget.org/packages/Aiursoft.Scanner/)
 [![Man hours](https://manhours.aiursoft.com/r/github.com/aiursoftweb/Scanner.svg)](https://manhours.aiursoft.com/r/github.com/aiursoftweb/Scanner.html)
 
-An Automatic dependencies management system for ASP.NET Core and powers Aiursoft.
+Scanner registers .NET dependency-injection services by scanning classes with singleton, scoped or transient marker interfaces.
 
-## Why this project
+## Overview
 
-The traditional way to add dependencies is:
+<a name="why-this-project"></a>
 
-```csharp
-service.AddScoped<MyScopedDependency>();
-```
+Replace repeated service registrations with `ISingletonDependency`, `IScopedDependency` and `ITransientDependency` markers. Register implementations by their concrete types, or supply interfaces and abstract classes to register those abstractions as well. The abstractions are available in the separate `Aiursoft.Scanner.Abstractions` package.
 
-Which means that you have to manually inject all dependencies. When you have too many of them, it is possible to make a mistake.
+## Installation
 
-## How to install
-
-First, install `Aiursoft.Scanner` to your ASP.NET Core project from nuget.org:
+Add the package to your .NET project:
 
 ```bash
 dotnet add package Aiursoft.Scanner
 ```
 
-Add the interface to your class like this:
+Requires .NET 10 or later.
 
-```csharp
-using Aiursoft.Scanner.Abstractions;
+## Usage
 
-public class MySingletonService : ISingletonDependency
-{
-
-}
-
-public class MyScopedService : IScopedDependency
-{
-
-}
-
-public class MyTransientService : ITransientDependency
-{
-
-}
-```
-
-And just call this in your `StartUp.cs`:
+In an ASP.NET Core project's `Program.cs`, register marked services before building the application:
 
 ```csharp
 using Aiursoft.Scanner;
+using Aiursoft.Scanner.Abstractions;
 
-services.AddScannedDependencies();
-```
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScannedDependencies();
 
-That's all! All your dependencies are registered. Just use it like previous before:
+var app = builder.Build();
+app.MapGet("/", (GreetingService greeting) => greeting.GetMessage());
+app.Run();
 
-```csharp
-public class MyController : Controller
+public sealed class GreetingService : IScopedDependency
 {
-    private readonly MyScopedService _service;
-    public MyController(MyScopedService service)
-    {
-        _service = service;
-    }
+    public string GetMessage() => "Hello from Scanner";
 }
 ```
 
-### Advanced usage
+A request to `/` resolves `GreetingService` with the scoped lifetime and returns `Hello from Scanner`.
 
-When you want to register a dependency that implements an abstract, your previous way is:
+See [the usage guide](https://github.com/AiursoftWeb/scanner/blob/master/docs/usage.md) for configuration and additional examples.
 
-```csharp
-public class MyClass : IAbstract
-{
+## Configuration
 
-}
+No additional configuration is required.
+
+<a name="advanced-usage"></a>
+
+Select service lifetimes through the marker interfaces. Pass the abstractions your application uses to `AddScannedDependencies(typeof(IMyService))`; see [abstract-service registration](https://github.com/AiursoftWeb/scanner/blob/master/docs/usage.md#advanced-usage) for examples.
+
+## Development
+
+Install the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
+
+From the repository root, restore, build and test:
+
+```bash
+dotnet restore Aiursoft.Scanner.sln
+dotnet build Aiursoft.Scanner.sln --no-restore
+dotnet test Aiursoft.Scanner.sln --no-restore
 ```
 
-```csharp
-service.AddScoped<IAbstract, MyClass>();
-```
+Run `./lint.sh` for the existing static checks.
 
-That's fine. But now we want to register this automatically.
+## Documentation
 
-Add the dependency interface to your service like this:
-
-```csharp
-public class MyClass : IAbstract, IScopedDependency
-{
-
-}
-```
-
-When you are registering all dependencies in your `StartUp.cs`, tell us that your project supports your abstract.
-
-```csharp
-services.AddScannedDependencies(typeof(IAbstract));
-```
-
-And you can call it with multiple abstracts:
-
-```csharp
-services.AddScannedDependencies(typeof(IAbstract1), typeof(IAbstract2), typeof(IAbstract3));
-```
-
-That's all! Enjoy!
+- <a name="how-to-install"></a>[Dependency markers and abstract-service registration](https://github.com/AiursoftWeb/scanner/blob/master/docs/usage.md)
+- [Scanning boundaries](https://github.com/AiursoftWeb/scanner/blob/master/docs/usage.md#scanning-boundaries)
+- [Build and test](#development)
 
 ## How to contribute
 
-There are many ways to contribute to the project: logging bugs, submitting pull requests, reporting issues, and creating suggestions.
+Report bugs and feature requests through the [issue tracker](https://github.com/AiursoftWeb/scanner/issues). Create a feature branch or fork and submit a merge request or pull request for review.
 
-Even if you with push rights on the repository, you should create a personal fork and create feature branches there when you need them. This keeps the main repository clean and your workflow cruft out of sight.
+Follow the [development guide](#development) to build and run the existing checks before submitting changes.
 
-We're also interested in your feedback on the future of this project. You can submit a suggestion or feature request through the issue tracker. To make this process more effective, we're asking that these include more information to help define them more clearly.
+## License
+
+Licensed under the [MIT License](https://github.com/AiursoftWeb/scanner/blob/master/LICENSE).
