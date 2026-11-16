@@ -11,6 +11,8 @@ Scanner registers .NET dependency-injection services by scanning classes with si
 
 ## Overview
 
+### What is Scanner?
+
 <a name="why-this-project"></a>
 
 Replace repeated service registrations with `ISingletonDependency`, `IScopedDependency` and `ITransientDependency` markers. Register implementations by their concrete types, or supply interfaces and abstract classes to register those abstractions as well. The abstractions are available in the separate `Aiursoft.Scanner.Abstractions` package.
@@ -32,6 +34,16 @@ dotnet add package Aiursoft.Scanner
 ```
 
 Requires .NET 10 or later.
+
+**Abstractions only**
+
+For a library that only declares dependency markers, install the abstractions package without the scanner implementation:
+
+```bash
+dotnet add package Aiursoft.Scanner.Abstractions
+```
+
+Applications use `Aiursoft.Scanner`, which already references these abstractions.
 
 ## Usage
 
@@ -150,7 +162,9 @@ That's all! Enjoy!
 
 No configuration file or external service is required. Service registration is configured in startup code as shown below.
 
-### Registration and options
+<a name="registration-and-options"></a>
+
+**Registration and options**
 
 | Marker | Lifetime |
 | --- | --- |
