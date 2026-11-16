@@ -7,9 +7,13 @@
 [![NuGet version (Aiursoft.Scanner)](https://img.shields.io/nuget/v/Aiursoft.Scanner.svg)](https://www.nuget.org/packages/Aiursoft.Scanner/)
 [![Man hours](https://manhours.aiursoft.com/r/github.com/aiursoftweb/Scanner.svg)](https://manhours.aiursoft.com/r/github.com/aiursoftweb/Scanner.html)
 
-An Automatic dependencies management system for ASP.NET Core and powers Aiursoft.
+Scanner registers .NET dependency-injection services by scanning classes with singleton, scoped or transient marker interfaces.
 
-## Why this project
+## Overview
+
+<a name="why-this-project"></a>
+
+Replace repeated service registrations with `ISingletonDependency`, `IScopedDependency` and `ITransientDependency` markers. Register implementations by their concrete types, or supply interfaces and abstract classes to register those abstractions as well. The abstractions are available in the separate `Aiursoft.Scanner.Abstractions` package.
 
 The traditional way to add dependencies is:
 
@@ -19,7 +23,40 @@ service.AddScoped<MyScopedDependency>();
 
 Which means that you have to manually inject all dependencies. When you have too many of them, it is possible to make a mistake.
 
-## How to install
+## Installation
+
+Add the package to your .NET project:
+
+```bash
+dotnet add package Aiursoft.Scanner
+```
+
+Requires .NET 10 or later.
+
+## Usage
+
+In an ASP.NET Core project's `Program.cs`, register marked services before building the application:
+
+```csharp
+using Aiursoft.Scanner;
+using Aiursoft.Scanner.Abstractions;
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScannedDependencies();
+
+var app = builder.Build();
+app.MapGet("/", (GreetingService greeting) => greeting.GetMessage());
+app.Run();
+
+public sealed class GreetingService : IScopedDependency
+{
+    public string GetMessage() => "Hello from Scanner";
+}
+```
+
+A request to `/` resolves `GreetingService` with the scoped lifetime and returns `Hello from Scanner`.
+
+### Additional examples
 
 First, install `Aiursoft.Scanner` to your ASP.NET Core project from nuget.org:
 
@@ -109,10 +146,49 @@ services.AddScannedDependencies(typeof(IAbstract1), typeof(IAbstract2), typeof(I
 
 That's all! Enjoy!
 
+## Configuration
+
+No configuration file or external service is required. Service registration is configured in startup code as shown below.
+
+### Registration and options
+
+| Marker | Lifetime |
+| --- | --- |
+| `ISingletonDependency` | One instance for the service provider |
+| `IScopedDependency` | One instance per dependency-injection scope |
+| `ITransientDependency` | A new instance on each resolution |
+
+`AddScannedDependencies()` scans classes accessible from the entry assembly, excluding system and Microsoft assemblies. `AddLibraryDependencies()` scans the calling assembly. `AddAssemblyDependencies(assembly, abstracts)` selects an assembly explicitly. Pass supported interfaces or abstract classes to register implementations under those abstractions, as shown in Advanced usage. The marker interfaces are supplied by `Aiursoft.Scanner.Abstractions`, which is a dependency of `Aiursoft.Scanner`.
+
+## Development
+
+Install the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
+
+From the repository root, restore, build and test:
+
+```bash
+dotnet restore Aiursoft.Scanner.sln
+dotnet build Aiursoft.Scanner.sln --no-restore
+dotnet test Aiursoft.Scanner.sln --no-restore
+```
+
+Run `./lint.sh` for the existing static checks.
+
+## Documentation
+
+- <a name="how-to-install"></a>[Package installation](#installation)
+- [Dependency markers and abstract-service registration](#additional-examples)
+- [Lifetimes and scanning boundaries](#registration-and-options)
+- [Build and test](#development)
+
 ## How to contribute
 
 There are many ways to contribute to the project: logging bugs, submitting pull requests, reporting issues, and creating suggestions.
 
-Even if you with push rights on the repository, you should create a personal fork and create feature branches there when you need them. This keeps the main repository clean and your workflow cruft out of sight.
+Even if you have push rights on the repository, you should create a personal fork and create feature branches there when you need them. This keeps the main repository clean and your workflow cruft out of sight.
 
 We're also interested in your feedback on the future of this project. You can submit a suggestion or feature request through the issue tracker. To make this process more effective, we're asking that these include more information to help define them more clearly.
+
+## License
+
+Licensed under the [MIT License](https://github.com/AiursoftWeb/scanner/blob/master/LICENSE).
