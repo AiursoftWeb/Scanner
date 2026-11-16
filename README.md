@@ -146,8 +146,6 @@ services.AddScannedDependencies(typeof(IAbstract1), typeof(IAbstract2), typeof(I
 
 That's all! Enjoy!
 
-See [the usage guide](https://github.com/AiursoftWeb/scanner/blob/master/docs/usage.md) for configuration and additional examples.
-
 ## Configuration
 
 No configuration file or external service is required. Service registration is configured in startup code as shown below.
@@ -178,15 +176,18 @@ Run `./lint.sh` for the existing static checks.
 
 ## Documentation
 
-- <a name="how-to-install"></a>[Dependency markers and abstract-service registration](https://github.com/AiursoftWeb/scanner/blob/master/docs/usage.md)
-- [Scanning boundaries](https://github.com/AiursoftWeb/scanner/blob/master/docs/usage.md#scanning-boundaries)
+- <a name="how-to-install"></a>[Package installation](#installation)
+- [Dependency markers and abstract-service registration](#additional-examples)
+- [Lifetimes and scanning boundaries](#registration-and-options)
 - [Build and test](#development)
 
 ## How to contribute
 
-Report bugs and feature requests through the [issue tracker](https://github.com/AiursoftWeb/scanner/issues). Create a feature branch or fork and submit a merge request or pull request for review.
+There are many ways to contribute to the project: logging bugs, submitting pull requests, reporting issues, and creating suggestions.
 
-Follow the [development guide](#development) to build and run the existing checks before submitting changes.
+Even if you have push rights on the repository, you should create a personal fork and create feature branches there when you need them. This keeps the main repository clean and your workflow cruft out of sight.
+
+We're also interested in your feedback on the future of this project. You can submit a suggestion or feature request through the issue tracker. To make this process more effective, we're asking that these include more information to help define them more clearly.
 
 ## License
 
