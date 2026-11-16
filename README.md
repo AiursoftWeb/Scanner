@@ -15,6 +15,14 @@ Scanner registers .NET dependency-injection services by scanning classes with si
 
 Replace repeated service registrations with `ISingletonDependency`, `IScopedDependency` and `ITransientDependency` markers. Register implementations by their concrete types, or supply interfaces and abstract classes to register those abstractions as well. The abstractions are available in the separate `Aiursoft.Scanner.Abstractions` package.
 
+The traditional way to add dependencies is:
+
+```csharp
+service.AddScoped<MyScopedDependency>();
+```
+
+Which means that you have to manually inject all dependencies. When you have too many of them, it is possible to make a mistake.
+
 ## Installation
 
 Add the package to your .NET project:
@@ -48,15 +56,111 @@ public sealed class GreetingService : IScopedDependency
 
 A request to `/` resolves `GreetingService` with the scoped lifetime and returns `Hello from Scanner`.
 
+### Additional examples
+
+First, install `Aiursoft.Scanner` to your ASP.NET Core project from nuget.org:
+
+```bash
+dotnet add package Aiursoft.Scanner
+```
+
+Add the interface to your class like this:
+
+```csharp
+using Aiursoft.Scanner.Abstractions;
+
+public class MySingletonService : ISingletonDependency
+{
+
+}
+
+public class MyScopedService : IScopedDependency
+{
+
+}
+
+public class MyTransientService : ITransientDependency
+{
+
+}
+```
+
+And just call this in your `StartUp.cs`:
+
+```csharp
+using Aiursoft.Scanner;
+
+services.AddScannedDependencies();
+```
+
+That's all! All your dependencies are registered. Just use it like previous before:
+
+```csharp
+public class MyController : Controller
+{
+    private readonly MyScopedService _service;
+    public MyController(MyScopedService service)
+    {
+        _service = service;
+    }
+}
+```
+
+### Advanced usage
+
+When you want to register a dependency that implements an abstract, your previous way is:
+
+```csharp
+public class MyClass : IAbstract
+{
+
+}
+```
+
+```csharp
+service.AddScoped<IAbstract, MyClass>();
+```
+
+That's fine. But now we want to register this automatically.
+
+Add the dependency interface to your service like this:
+
+```csharp
+public class MyClass : IAbstract, IScopedDependency
+{
+
+}
+```
+
+When you are registering all dependencies in your `StartUp.cs`, tell us that your project supports your abstract.
+
+```csharp
+services.AddScannedDependencies(typeof(IAbstract));
+```
+
+And you can call it with multiple abstracts:
+
+```csharp
+services.AddScannedDependencies(typeof(IAbstract1), typeof(IAbstract2), typeof(IAbstract3));
+```
+
+That's all! Enjoy!
+
 See [the usage guide](https://github.com/AiursoftWeb/scanner/blob/master/docs/usage.md) for configuration and additional examples.
 
 ## Configuration
 
-No additional configuration is required.
+No configuration file or external service is required. Service registration is configured in startup code as shown below.
 
-<a name="advanced-usage"></a>
+### Registration and options
 
-Select service lifetimes through the marker interfaces. Pass the abstractions your application uses to `AddScannedDependencies(typeof(IMyService))`; see [abstract-service registration](https://github.com/AiursoftWeb/scanner/blob/master/docs/usage.md#advanced-usage) for examples.
+| Marker | Lifetime |
+| --- | --- |
+| `ISingletonDependency` | One instance for the service provider |
+| `IScopedDependency` | One instance per dependency-injection scope |
+| `ITransientDependency` | A new instance on each resolution |
+
+`AddScannedDependencies()` scans classes accessible from the entry assembly, excluding system and Microsoft assemblies. `AddLibraryDependencies()` scans the calling assembly. `AddAssemblyDependencies(assembly, abstracts)` selects an assembly explicitly. Pass supported interfaces or abstract classes to register implementations under those abstractions, as shown in Advanced usage. The marker interfaces are supplied by `Aiursoft.Scanner.Abstractions`, which is a dependency of `Aiursoft.Scanner`.
 
 ## Development
 
